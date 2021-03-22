@@ -2,13 +2,14 @@ import React from "react";
 import Header from "../Layout/Header";
 import Footer from "../Layout/Footer";
 
-const Homepage = () => {
+const Shop = () => {
   return (
-    <section className="homepage">
+    <section className="shop">
       <Header />
+      shop
       <Footer />
     </section>
   );
 };
 
-export default Homepage;
+export default Shop;
