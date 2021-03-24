@@ -6,7 +6,7 @@ const UserPanel = ({ currentUser }) => {
   const { email } = currentUser;
   return (
     <div className="landing-page__user-panel">
-      {email ? <Welcome email={email} /> : <SmallLogin />}
+      {email ? <Welcome /> : <SmallLogin />}
     </div>
   );
 };
