@@ -1,4 +1,5 @@
 import { auth } from "../../config/firebase";
+import createUserProfile from "../profile/createUserProfile";
 
 const registration = (data, setErrors, reset) => {
   const { email, password, confirmPassword } = data;
@@ -16,10 +17,16 @@ const registration = (data, setErrors, reset) => {
     errors.push("Hasła są różne.");
   }
 
+  if (errors.length > 0) {
+    setErrors(errors);
+    return false;
+  }
+
   auth
     .createUserWithEmailAndPassword(email, password)
     .then((user) => {
-      console.log(user);
+      setErrors([]);
+      createUserProfile(email);
       reset();
     })
     .catch((err) => {

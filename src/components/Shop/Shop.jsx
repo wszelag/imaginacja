@@ -6,7 +6,7 @@ const Shop = () => {
   return (
     <section className="shop">
       <Header />
-      shop
+      Strona główna sklepu
       <Footer />
     </section>
   );

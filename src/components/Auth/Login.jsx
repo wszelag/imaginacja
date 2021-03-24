@@ -6,13 +6,14 @@ import Errors from "./Errors";
 import BackButton from "./BackButton";
 import { fieldsData } from "./fieldsData";
 import { useForm } from "react-hook-form";
+import login from "../../tools/auth/login";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const [errors, setErrors] = useState([]);
 
   const onSubmit = (data) => {
-    console.log(data);
+    login(data);
   };
 
   const inputs = fieldsData.map((el) => {
