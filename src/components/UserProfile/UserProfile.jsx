@@ -1,19 +1,26 @@
 import React from "react";
 import { auth } from "../../config/firebase";
+import { CurrentUserContext } from "../../context/currentUser";
+import { Redirect } from "react-router-dom";
 
-const UserProfile = ({ user }) => {
-  console.log(user);
+const UserProfile = () => {
   return (
-    <div>
-      <button
-        onClick={() => {
-          auth.signOut();
-        }}
-      >
-        {" "}
-        logout{" "}
-      </button>
-    </div>
+    <CurrentUserContext.Consumer>
+      {({ email }) => (
+        <div>
+          {!email && <Redirect to="/" />}
+          profile of {email}
+          <button
+            onClick={() => {
+              auth.signOut();
+            }}
+          >
+            {" "}
+            logout{" "}
+          </button>
+        </div>
+      )}
+    </CurrentUserContext.Consumer>
   );
 };
 

@@ -1,13 +1,17 @@
 import React from "react";
 import Welcome from "./Welcome";
 import SmallLogin from "./SmallLogin";
+import { CurrentUserContext } from "../../context/currentUser";
 
-const UserPanel = ({ currentUser }) => {
-  const { email } = currentUser;
+const UserPanel = () => {
   return (
-    <div className="landing-page__user-panel">
-      {email ? <Welcome /> : <SmallLogin />}
-    </div>
+    <CurrentUserContext.Consumer>
+      {({ email }) => (
+        <div className="landing-page__user-panel">
+          {email ? <Welcome /> : <SmallLogin />}
+        </div>
+      )}
+    </CurrentUserContext.Consumer>
   );
 };
 

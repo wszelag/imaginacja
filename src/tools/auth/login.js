@@ -18,9 +18,7 @@ const login = (data) => {
 
   auth
     .signInWithEmailAndPassword(email, password)
-    .then((user) => {
-      console.log("ds");
-    })
+    .then((user) => {})
     .catch((err) => {
       alert("Błędne dane logowania");
     });
