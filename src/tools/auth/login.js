@@ -1,6 +1,7 @@
 import { auth } from "../../config/firebase";
 
 const login = async (data, setIsLoading) => {
+  const form = document.querySelector(".landing-page__form");
   const { email, password } = data;
   let errors = [];
   if (!email) {
@@ -16,6 +17,7 @@ const login = async (data, setIsLoading) => {
     return false;
   }
   setIsLoading(true);
+  form.classList.add("landing-page__form--loading");
 
   auth
     .signInWithEmailAndPassword(email, password)
@@ -25,6 +27,7 @@ const login = async (data, setIsLoading) => {
     .catch((err) => {
       alert("Błędne dane logowania");
       setIsLoading(false);
+      form.classList.remove("landing-page__form--loading");
       return false;
     });
 };

@@ -1,15 +1,7 @@
 import React from "react";
-import Header from "../Layout/Header";
-import Footer from "../Layout/Footer";
 
 const Pictures = () => {
-  return (
-    <section className="pictures">
-      <Header />
-      pictures
-      <Footer />
-    </section>
-  );
+  return <section className="pictures">pic</section>;
 };
 
 export default Pictures;

@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import login from "../../tools/auth/login";
 import { Loader } from "./Loader";
 
 const SmallLogin = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    login(data);
+    login(data, setIsLoading);
     reset();
   };
 
   return (
     <div className="landing-page__small-login">
-      <Loader />
+      {isLoading && <Loader />}
       <form onSubmit={handleSubmit(onSubmit)} className="landing-page__form">
         <input
           className="landing-page__input"
-          type="text"
+          type="email"
           name="email"
           ref={register}
           placeholder="email"

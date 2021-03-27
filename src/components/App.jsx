@@ -38,7 +38,7 @@ const App = () => {
               <UserProfile />
             </Route>
             <Route path="/rejestracja" exact component={Register} />
-            <Route path="/login" exact component={Login} />
+            {/* <Route path="/login" exact component={Login} /> */}
           </Switch>
         </Router>
       </CurrentUserContext.Provider>

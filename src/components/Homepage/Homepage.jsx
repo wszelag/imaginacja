@@ -1,14 +1,7 @@
 import React from "react";
-import Header from "../Layout/Header";
-import Footer from "../Layout/Footer";
 
 const Homepage = () => {
-  return (
-    <section className="homepage">
-      <Header />
-      <Footer />
-    </section>
-  );
+  return <section className="homepage"></section>;
 };
 
 export default Homepage;
