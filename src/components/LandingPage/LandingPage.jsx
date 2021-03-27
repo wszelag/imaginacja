@@ -1,6 +1,7 @@
 import React from "react";
 import LinkContainer from "./LinkContainer";
 import UserPanel from "./UserPanel";
+import { SocialPanel } from "./SocialPanel";
 
 const LandingPage = ({ currentUser }) => {
   return (
@@ -18,6 +19,7 @@ const LandingPage = ({ currentUser }) => {
         description="Stworzone przy współpracy z naturą."
         buttonTxt="Sprawdź ofertę"
       />
+      <SocialPanel />
     </section>
   );
 };

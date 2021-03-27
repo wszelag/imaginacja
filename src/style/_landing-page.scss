@@ -113,6 +113,45 @@
       text-decoration: none;
     }
   }
+  &__social-panel {
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  &__social-link {
+    display: block;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &--facebook {
+      color: $fb-blue;
+      & a {
+        color: $fb-blue;
+        &:visited {
+          color: $fb-blue;
+        }
+      }
+    }
+    &--instagram {
+      color: $ig-violet;
+      & a {
+        color: $ig-violet;
+        &:visited {
+          color: $ig-violet;
+        }
+      }
+    }
+  }
 }
 
 //loader
