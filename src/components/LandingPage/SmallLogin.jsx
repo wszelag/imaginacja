@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import login from "../../tools/auth/login";
+import { Loader } from "./Loader";
 
 const SmallLogin = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -9,8 +10,10 @@ const SmallLogin = () => {
     login(data);
     reset();
   };
+
   return (
     <div className="landing-page__small-login">
+      <Loader />
       <form onSubmit={handleSubmit(onSubmit)} className="landing-page__form">
         <input
           className="landing-page__input"

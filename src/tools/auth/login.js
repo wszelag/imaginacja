@@ -1,6 +1,6 @@
 import { auth } from "../../config/firebase";
 
-const login = (data) => {
+const login = async (data, setIsLoading) => {
   const { email, password } = data;
   let errors = [];
   if (!email) {
@@ -15,12 +15,17 @@ const login = (data) => {
   if (errors.length > 0) {
     return false;
   }
+  setIsLoading(true);
 
   auth
     .signInWithEmailAndPassword(email, password)
-    .then((user) => {})
+    .then((user) => {
+      return true;
+    })
     .catch((err) => {
       alert("Błędne dane logowania");
+      setIsLoading(false);
+      return false;
     });
 };
 
