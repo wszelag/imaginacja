@@ -7,6 +7,8 @@ import registration from "../../tools/auth/registration";
 import { useForm } from "react-hook-form";
 import { fieldsData } from "./fieldsData";
 import { Header } from "./Header";
+import { CurrentUserContext } from "../../context/currentUser";
+import { Redirect } from "react-router-dom";
 
 const Register = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -28,20 +30,27 @@ const Register = () => {
   ));
 
   return (
-    <section className="auth-form">
-      <div className="auth-form__form-container">
-        <Header title="Rejestracja" />
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="auth-form__form auth-form__form--register"
-        >
-          {inputs}
-          <Errors errors={errors} />
-          <Button title="Zarejestruj się" />
-          <SpanWithLink variant="register" />
-        </form>
-      </div>
-    </section>
+    <CurrentUserContext.Consumer>
+      {({ email }) => (
+        <>
+          {email && <Redirect to="/" />}
+          <section className="auth-form">
+            <div className="auth-form__form-container">
+              <Header title="Rejestracja" />
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="auth-form__form auth-form__form--register"
+              >
+                {inputs}
+                <Errors errors={errors} />
+                <Button title="Zarejestruj się" />
+                <SpanWithLink variant="register" />
+              </form>
+            </div>
+          </section>
+        </>
+      )}
+    </CurrentUserContext.Consumer>
   );
 };
 

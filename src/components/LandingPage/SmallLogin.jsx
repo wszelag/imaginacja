@@ -18,14 +18,14 @@ const SmallLogin = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="landing-page__form">
         <input
           className="landing-page__input"
-          type="email"
+          type="text"
           name="email"
           ref={register}
           placeholder="email"
         />
         <input
           className="landing-page__input"
-          type="text"
+          type="password"
           name="password"
           ref={register}
           placeholder="hasło"

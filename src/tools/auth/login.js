@@ -3,15 +3,16 @@ import { auth } from "../../config/firebase";
 const login = async (data, setIsLoading) => {
   const form = document.querySelector(".landing-page__form");
   const { email, password } = data;
+  console.log(data);
   let errors = [];
   if (!email) {
-    alert("Podaj adres e-mail.");
+    return alert("Podaj adres e-mail.");
   }
   if (!password) {
-    alert("Podaj hasło.");
+    return alert("Podaj hasło.");
   }
   if (password.length < 8) {
-    alert("Hasło powinno zawierać min. 8 znaków.");
+    return alert("Hasło powinno zawierać min. 8 znaków.");
   }
   if (errors.length > 0) {
     return false;
