@@ -3,6 +3,7 @@ import Catering from "./Catering/Catering";
 import Shop from "./Shop/Shop";
 import UserProfile from "./UserProfile/UserProfile";
 import Register from "./Auth/Register";
+import Login from "./Auth/Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "../style/style.scss";
 import { auth } from "../config/firebase";
@@ -37,6 +38,7 @@ const App = () => {
               <UserProfile />
             </Route>
             <Route path="/rejestracja" exact component={Register} />
+            <Route path="/login" exact component={Login} />
           </Switch>
         </Router>
       </CurrentUserContext.Provider>

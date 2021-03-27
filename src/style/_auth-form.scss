@@ -3,33 +3,28 @@
   height: 100vh;
   display: flex;
   position: relative;
-  &__back-button {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  &__form {
-    position: relative;
-    margin: auto;
+  &__form-container {
     width: 360px;
     min-height: 420px;
+    position: relative;
+    margin: auto;
+  }
+  &__header {
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 30px;
+    background: $blue;
+  }
+  &__form {
+    width: 360px;
+    min-height: 220px;
     &--register {
-      min-height: 490px;
+      min-height: 290px;
     }
     display: flex;
     flex-wrap: wrap;
     background-color: $mainColor;
-  }
-  &__title {
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    font-size: 30px;
-    text-align: center;
-    padding: 4px;
   }
   &__field {
     width: 360px;
@@ -43,7 +38,7 @@
   }
   &__input {
     width: 300px;
-    margin: 0 30px;
+    margin: 10px 30px;
     height: 40px;
   }
   &__errors {

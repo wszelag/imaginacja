@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Title from "./Title";
 import Button from "./Button";
 import SpanWithLink from "./SpanWithLink";
 import Errors from "./Errors";
@@ -7,13 +6,14 @@ import BackButton from "./BackButton";
 import { fieldsData } from "./fieldsData";
 import { useForm } from "react-hook-form";
 import login from "../../tools/auth/login";
+import { Header } from "./Header";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const [errors, setErrors] = useState([]);
 
   const onSubmit = (data) => {
-    login(data);
+    login(data, setErrors, reset);
   };
 
   const inputs = fieldsData.map((el) => {
@@ -22,8 +22,8 @@ const Login = () => {
     }
     return (
       <label className="auth-form__field" key={el.id}>
-        <h3 className="auth-form__field-title">{el.title}</h3>
         <input
+          placeholder={el.title}
           type={el.type}
           className="auth-form__input"
           name={el.name}
@@ -35,14 +35,15 @@ const Login = () => {
 
   return (
     <section className="auth-form">
-      <BackButton />
-      <form onSubmit={handleSubmit(onSubmit)} className="auth-form__form">
-        <Title title="Logowanie" />
-        {inputs}
-        <Errors errors={errors} />
-        <Button title="Zaloguj się" />
-        <SpanWithLink variant="login" />
-      </form>
+      <div className="auth-form__form-container">
+        <Header title="Logowanie" />
+        <form onSubmit={handleSubmit(onSubmit)} className="auth-form__form">
+          {inputs}
+          <Errors errors={errors} />
+          <Button title="Zaloguj się" />
+          <SpanWithLink variant="login" />
+        </form>
+      </div>
     </section>
   );
 };
